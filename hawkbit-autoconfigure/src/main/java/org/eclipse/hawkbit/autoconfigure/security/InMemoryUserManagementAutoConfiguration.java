@@ -53,11 +53,25 @@ public class InMemoryUserManagementAutoConfiguration extends GlobalAuthenticatio
     @Bean
     @ConditionalOnMissingBean
     public UserDetailsService userDetailsService() {
-        final InMemoryUserDetailsManager inMemoryUserDetailsManager = new InMemoryUserPrincipalDetailsManager();
-        inMemoryUserDetailsManager.setAuthenticationManager(null);
-        inMemoryUserDetailsManager.createUser(new User(securityProperties.getUser().getName(),
-                securityProperties.getUser().getPassword(), PermissionUtils.createAllAuthorityList()));
-        return inMemoryUserDetailsManager;
+//        final InMemoryUserDetailsManager inMemoryUserDetailsManager = new InMemoryUserPrincipalDetailsManager();
+//        inMemoryUserDetailsManager.setAuthenticationManager(null);
+//        inMemoryUserDetailsManager.createUser(new User(securityProperties.getUser().getName(),
+//                securityProperties.getUser().getPassword(), PermissionUtils.createAllAuthorityList()));
+//        return inMemoryUserDetailsManager;
+    	
+    	InMemoryUserDetailsManager manager = new InMemoryUserPrincipalDetailsManager();
+    	manager.createUser(new User("admin1","password1", PermissionUtils.createAllAuthorityList()));
+    	manager.createUser(new User("admin2","password2", PermissionUtils.createAllAuthorityList()));
+    	manager.createUser(new User("admin3","password3", PermissionUtils.createAllAuthorityList()));
+    	manager.createUser(new User("admin4","password4", PermissionUtils.createAllAuthorityList()));
+    	manager.createUser(new User("admin5","password5", PermissionUtils.createAllAuthorityList()));
+    	manager.createUser(new User("admin6","password6", PermissionUtils.createAllAuthorityList()));
+    	manager.createUser(new User("admin7","password7", PermissionUtils.createAllAuthorityList()));
+    	manager.createUser(new User("admin8","password8", PermissionUtils.createAllAuthorityList()));
+    	manager.createUser(new User("admin9","password9", PermissionUtils.createAllAuthorityList()));
+    	manager.createUser(new User("admin10","password10", PermissionUtils.createAllAuthorityList()));
+		return manager;
+		
     }
 
     /**
