@@ -145,6 +145,9 @@ public final class SpPermission {
      * Permission to administrate a rollout management.
      */
     public static final String ROLLOUT_MANAGEMENT = "ROLLOUT_MANAGEMENT";
+    
+    public static final String USER_MANAGEMENT = "USER_MANAGEMENT";
+    
 
     private SpPermission() {
         // Constants only
@@ -156,7 +159,15 @@ public final class SpPermission {
      * @return all permission
      */
     public static Collection<String> getAllAuthorities() {
-        return getAllAuthorities(Collections.emptyList());
+    	Collection<String> list=new ArrayList<String>();
+    	list.add(SpPermission.USER_MANAGEMENT);
+        return getAllAuthorities(list);
+    }
+    
+    public static Collection<String> getSuperAdminAuthorities() {
+    	Collection<String> authorities= getAllAuthorities(Collections.emptyList());
+    	authorities.add(SpPermission.USER_MANAGEMENT);
+    	return authorities;
     }
 
     /**

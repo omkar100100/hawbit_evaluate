@@ -52,4 +52,9 @@ public final class PermissionUtils {
     public static List<GrantedAuthority> createAllAuthorityList() {
         return createAuthorityList(SpPermission.getAllAuthorities());
     }
+    
+    
+    public static List<GrantedAuthority> createSuperAdminAuthorityList() {
+        return createAuthorityList(SpPermission.getSuperAdminAuthorities());
+    }
 }

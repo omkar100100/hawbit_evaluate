@@ -60,6 +60,7 @@ public class InMemoryUserManagementAutoConfiguration extends GlobalAuthenticatio
 //        return inMemoryUserDetailsManager;
     	
     	InMemoryUserDetailsManager manager = new InMemoryUserPrincipalDetailsManager();
+    	manager.createUser(new User("superadmin","superadmin", PermissionUtils.createSuperAdminAuthorityList()));
     	manager.createUser(new User("admin1","password1", PermissionUtils.createAllAuthorityList()));
     	manager.createUser(new User("admin2","password2", PermissionUtils.createAllAuthorityList()));
     	manager.createUser(new User("admin3","password3", PermissionUtils.createAllAuthorityList()));

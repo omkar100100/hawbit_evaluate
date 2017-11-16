@@ -44,7 +44,7 @@ public class UserManagementViewMenuItem  extends AbstractDashboardMenuItemNotifi
 
 	@Override
 	public List<String> getPermissions() {
-		return Arrays.asList(SpPermission.CREATE_TARGET, SpPermission.READ_TARGET);
+		return Arrays.asList(SpPermission.USER_MANAGEMENT);
 	}
 
 }

@@ -5,6 +5,8 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 
 import org.eclipse.hawkbit.repository.TargetFilterQueryManagement;
+import org.eclipse.hawkbit.repository.jpa.UserRepository;
+import org.eclipse.hawkbit.repository.jpa.model.JpaUser;
 import org.eclipse.hawkbit.ui.AbstractHawkbitUI;
 import org.eclipse.hawkbit.ui.SpPermissionChecker;
 import org.eclipse.hawkbit.ui.components.AbstractNotificationView;
@@ -41,17 +43,21 @@ public class UserManagementView extends VerticalLayout implements View {
     private final UserManagementTable userManagementTable;
     
     private final FilterManagementUIState filterManagementUIState;
+    
+    UserRepository userRepository;
 	
 	@Autowired
 	UserManagementView(final VaadinMessageSource i18n, final UIEventBus eventBus,
             final FilterManagementUIState filterManagementUIState, final TargetFilterQueryManagement targetFilterQueryManagement, final SpPermissionChecker permissionChecker,
-            final UINotification notification){
+            final UINotification notification,UserRepository userRepository){
 		 this.targetFilterHeader = new TargetFilterHeader(eventBus, filterManagementUIState, permissionChecker);
 		 
 		 this.userManagementTable = new UserManagementTable(i18n, notification, eventBus, filterManagementUIState,
 	                targetFilterQueryManagement);
 		 
 		 this.filterManagementUIState = filterManagementUIState;
+		 
+		 this.userRepository=userRepository;
 	}
 
 	 @PostConstruct
@@ -63,6 +69,15 @@ public class UserManagementView extends VerticalLayout implements View {
 	    }
 
 	 private void buildLayout() {
+//		 	JpaUser user=new JpaUser();
+//		 	user.setName("chandra");
+//		 	user.setPhoneNumber("12332");
+//		 	user.setEmail("chandra100100@yahoo.com");
+//		 	user.setBirthDay(null);
+//		 	user.setColleague(true);
+//		 	user.setId(1l);
+//		 	JpaUser updatedUser=userRepository.save(user);
+		 	
 	        setSizeFull();
 	        setSpacing(false);
 	        setMargin(false);
