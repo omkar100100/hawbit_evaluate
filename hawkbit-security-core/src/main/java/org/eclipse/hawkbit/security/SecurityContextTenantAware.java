@@ -85,7 +85,7 @@ public class SecurityContextTenantAware implements TenantAware {
             this.delegate = delegate;
             this.systemPrincipal = new UserPrincipal(SYSTEM_USER, SYSTEM_USER, SYSTEM_USER, SYSTEM_USER, SYSTEM_USER,
                     null, tenant, SYSTEM_AUTHORITIES);
-            tenantAwareAuthenticationDetails = new TenantAwareAuthenticationDetails(tenant, false);
+            tenantAwareAuthenticationDetails = new TenantAwareAuthenticationDetails(tenant, true);
         }
 
         @Override
